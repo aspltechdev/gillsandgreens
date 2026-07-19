@@ -1,138 +1,136 @@
-/* Founder.css */
+/* ============================================
+   Founder Section - Previous Design Enhanced
+   ============================================ */
 
 .founder {
   position: relative;
-  background: linear-gradient(175deg, #f8fbf8 0%, #f0f7ec 30%, #edf5f9 60%, #f8fbf8 100%);
-  padding: 6rem 0;
+  padding: 8rem 0;
   overflow: hidden;
+  background: var(--bg-primary);
 }
 
-/* Decorative Background Elements */
+/* Subtle Background Decorations */
 .founder::before {
   content: '';
   position: absolute;
-  top: 15%;
-  left: -10%;
+  top: -5%;
+  right: -5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(234, 246, 221, 0.5) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(103, 180, 55, 0.05) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  animation: orbFloat 20s ease-in-out infinite;
 }
 
 .founder::after {
   content: '';
   position: absolute;
-  bottom: 10%;
-  right: -10%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(234, 245, 252, 0.5) 0%, transparent 70%);
+  bottom: -5%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(45, 143, 213, 0.04) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  animation: orbFloat 25s ease-in-out infinite reverse;
 }
 
-@keyframes orbFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(40px, -40px) scale(1.08);
-  }
-  66% {
-    transform: translate(-30px, 30px) scale(0.94);
-  }
+/* ============================================
+   Container
+   ============================================ */
+
+.founder-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Section Heading */
-.section-heading {
+/* ============================================
+   Header
+   ============================================ */
+
+.founder-header {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 5rem;
-  position: relative;
-  z-index: 1;
 }
 
-.section-tag {
+.founder-header-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.55rem 1.5rem;
   background: linear-gradient(135deg, rgba(234, 246, 221, 0.9), rgba(234, 245, 252, 0.9));
   color: var(--primary-dark);
-  padding: 0.5rem 1.5rem;
   border-radius: 100px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(103, 180, 55, 0.2);
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
-.section-tag::before {
-  content: '👥';
-  font-size: 0.9rem;
+.founder-header-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 180, 55, 0.12);
 }
 
-.section-heading h2 {
-  font-size: 2.75rem;
+.founder-heading {
+  font-size: clamp(2.25rem, 4vw, 3rem);
   font-weight: 800;
   color: var(--heading);
   line-height: 1.2;
+  letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
 }
 
-.section-heading h2 span {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-heading p {
+.founder-header-desc {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--text);
+  color: var(--text-body);
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Founder Grid */
+/* ============================================
+   Founders Grid
+   ============================================ */
+
 .founder-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
-/* Founder Card */
+/* ============================================
+   Founder Card
+   ============================================ */
+
 .founder-card {
   background: var(--white);
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(103, 180, 55, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .founder-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
   border-color: rgba(103, 180, 55, 0.2);
 }
 
-/* Founder Image Container */
+/* ============================================
+   Image Section
+   ============================================ */
+
 .founder-image {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 350px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--light-green), var(--light-blue));
 }
@@ -142,7 +140,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .founder-card:hover .founder-image img {
@@ -150,313 +148,220 @@
 }
 
 /* Image Gradient Overlay */
-.founder-image::before {
-  content: '';
+.founder-image-overlay {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
   background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 0, 0, 0.05) 80%,
-    rgba(0, 0, 0, 0.2) 100%
+    to top,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 100%
   );
   z-index: 1;
-  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-/* Experience Badge on Image */
-.founder-image::after {
-  content: '';
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  z-index: 2;
-  padding: 0.5rem 1.25rem;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--white);
-  transition: all 0.3s ease;
-}
+/* ============================================
+   Content Section
+   ============================================ */
 
-.founder-card:nth-child(1) .founder-image::after {
-  content: '20+ Years Experience';
-  background: rgba(22, 163, 74, 0.85);
-}
-
-.founder-card:nth-child(2) .founder-image::after {
-  content: 'Tech Innovator';
-  background: rgba(30, 111, 184, 0.85);
-}
-
-/* Founder Content */
 .founder-content {
-  padding: 2.5rem;
   position: relative;
+  padding: 2.5rem 2rem 2rem;
 }
 
-/* Founder Icon (Role Indicator) */
+/* Role Icon - Overlaps Image */
 .founder-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -45px;
-  margin-bottom: 1.5rem;
+  margin-top: -50px;
+  margin-bottom: 1.25rem;
   position: relative;
   z-index: 3;
-  transition: all 0.5s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.founder-card:nth-child(1) .founder-icon {
-  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-  color: #16a34a;
-}
-
-.founder-card:nth-child(2) .founder-icon {
-  background: linear-gradient(135deg, var(--light-blue), #bfdbfe);
-  color: var(--secondary-dark);
+  border: 2px solid;
+  background: var(--white);
 }
 
 .founder-card:hover .founder-icon {
-  transform: translateY(-5px) scale(1.1) rotate(-5deg);
+  transform: scale(1.1) rotate(-5deg);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* Founder Name */
-.founder-content h3 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--heading);
-  margin-bottom: 0.375rem;
-  transition: color 0.3s ease;
-  letter-spacing: -0.01em;
+/* Quote Decoration */
+.founder-quote-decoration {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--primary);
+  opacity: 0.06;
+  pointer-events: none;
+  transition: all 0.4s ease;
 }
 
-.founder-card:hover .founder-content h3 {
+.founder-card:hover .founder-quote-decoration {
+  opacity: 0.1;
+  transform: scale(1.1);
+}
+
+/* Name */
+.founder-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--heading);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.founder-card:hover .founder-name {
   color: var(--primary-dark);
 }
 
 /* Designation */
-.founder-content span {
+.founder-designation {
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--primary);
-  margin-bottom: 1.25rem;
-  position: relative;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
 }
 
-.founder-content span::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
+/* Underline */
+.founder-underline {
+  width: 50px;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
   border-radius: 2px;
-  transition: width 0.3s ease;
+  margin-bottom: 1.25rem;
+  transition: width 0.4s ease;
 }
 
-.founder-card:hover .founder-content span::after {
-  width: 60px;
+.founder-card:hover .founder-underline {
+  width: 80px;
 }
 
 /* Education */
-.education {
+.founder-education {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.875rem 1.125rem;
-  background: linear-gradient(135deg, var(--light-green), rgba(234, 246, 221, 0.3));
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(234, 246, 221, 0.5), rgba(234, 245, 252, 0.5));
   border-radius: 12px;
   margin-bottom: 1.25rem;
-  border: 1px solid rgba(103, 180, 55, 0.1);
+  border: 1px solid rgba(103, 180, 55, 0.08);
   transition: all 0.3s ease;
 }
 
-.founder-card:nth-child(2) .education {
-  background: linear-gradient(135deg, var(--light-blue), rgba(234, 245, 252, 0.3));
-  border: 1px solid rgba(45, 143, 213, 0.1);
+.founder-education:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.education svg {
+.founder-education svg {
   color: var(--primary);
   flex-shrink: 0;
 }
 
-.founder-card:nth-child(2) .education svg {
-  color: var(--secondary);
-}
-
-.education p {
+.founder-education p {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--heading);
   margin: 0;
 }
 
-.founder-card:hover .education {
-  transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
 /* Description */
-.description {
-  color: var(--text);
+.founder-description {
   font-size: 0.95rem;
   line-height: 1.7;
+  color: var(--text-body);
+  margin: 0;
 }
 
-/* Social Links (Optional - Add if needed) */
-.founder-social {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-}
-
-.founder-social a {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--light-green);
-  color: var(--primary);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(103, 180, 55, 0.1);
-}
-
-.founder-social a:hover {
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(103, 180, 55, 0.2);
-}
-
-/* Quote Decoration */
-.founder-content::before {
-  content: '"';
+/* Card Accent Line */
+.founder-card-accent {
   position: absolute;
-  top: 1rem;
-  right: 2rem;
-  font-size: 5rem;
-  font-weight: 800;
-  color: rgba(103, 180, 55, 0.04);
-  line-height: 1;
-  pointer-events: none;
-  font-family: Georgia, serif;
-  transition: all 0.4s ease;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.founder-card:hover .founder-content::before {
-  color: rgba(103, 180, 55, 0.08);
-  transform: scale(1.1);
+.founder-card:hover .founder-card-accent {
+  transform: translateX(-50%) scaleX(1);
 }
 
-/* Divider Between Founders (Mobile) */
+/* ============================================
+   Responsive Design
+   ============================================ */
+
 @media (max-width: 768px) {
-  .founder-grid::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(103, 180, 55, 0.15), rgba(45, 143, 213, 0.15), transparent);
-    z-index: 0;
+  .founder {
+    padding: 5rem 0;
   }
-}
 
-/* Responsive Design */
-@media (max-width: 1024px) {
   .founder-grid {
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 2.5rem;
   }
 
   .founder-image {
     height: 320px;
   }
 
+  .founder-heading {
+    font-size: 2rem;
+  }
+
   .founder-content {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .founder {
-    padding: 4rem 0;
-  }
-
-  .founder-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    gap: 3rem;
-  }
-
-  .section-heading h2 {
-    font-size: 2.25rem;
-  }
-
-  .section-heading p {
-    font-size: 1rem;
-  }
-
-  .founder-image {
-    height: 350px;
-  }
-
-  .founder-content h3 {
-    font-size: 1.4rem;
+    padding: 2rem 1.75rem 1.75rem;
   }
 }
 
 @media (max-width: 640px) {
-  .section-heading {
-    margin-bottom: 3rem;
+  .founder-container {
+    padding: 0 1.25rem;
   }
 
   .founder-image {
-    height: 300px;
+    height: 280px;
   }
 
   .founder-content {
-    padding: 1.75rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .founder-name {
+    font-size: 1.3rem;
   }
 
   .founder-icon {
-    width: 44px;
-    height: 44px;
-    margin-top: -35px;
-  }
-
-  .founder-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .education {
-    padding: 0.75rem 1rem;
+    width: 48px;
+    height: 48px;
+    margin-top: -40px;
   }
 }
 
-/* Accessibility */
+/* ============================================
+   Accessibility
+   ============================================ */
+
 @media (prefers-reduced-motion: reduce) {
-  .founder *,
-  .founder *::before,
-  .founder *::after {
+  .founder * {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

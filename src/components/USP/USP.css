@@ -1,389 +1,385 @@
-/* USP.css */
+/* ============================================
+   USP Section - Image Cards with Overlay
+   ============================================ */
 
 .usp {
   position: relative;
-  background: linear-gradient(175deg, #f8fbf8 0%, #f0f7ec 30%, #edf5f9 70%, #f8fbf8 100%);
-  padding: 6rem 0;
+  padding: 8rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ============================================
+   Background
+   ============================================ */
+
+.usp-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
 }
 
-/* Animated Background Orbs */
-.usp::before {
-  content: '';
+.usp-bg-image {
   position: absolute;
-  top: 15%;
-  right: -8%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(234, 246, 221, 0.5) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: orbFloat 15s ease-in-out infinite;
+  inset: -5%;
 }
 
-.usp::after {
-  content: '';
+.usp-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.5) saturate(0.5);
+}
+
+.usp-bg-overlay {
   position: absolute;
-  bottom: 10%;
-  left: -8%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(234, 245, 252, 0.5) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: orbFloat 18s ease-in-out infinite reverse;
-}
-
-@keyframes orbFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(30px, -30px) scale(1.08);
-  }
-  50% {
-    transform: translate(-15px, -50px) scale(0.95);
-  }
-  75% {
-    transform: translate(-35px, 15px) scale(1.05);
-  }
-}
-
-/* Section Heading */
-.section-heading {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem;
-  position: relative;
+  inset: 0;
+  background: rgba(112, 112, 112, 0.073);
   z-index: 1;
 }
 
-.section-tag {
+/* ============================================
+   Container
+   ============================================ */
+
+.usp-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+.usp-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+}
+
+.usp-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, rgba(234, 246, 221, 0.9), rgba(234, 245, 252, 0.9));
-  color: var(--primary-dark);
   padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #4ade80;
   border-radius: 100px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(103, 180, 55, 0.2);
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.section-tag::before {
-  content: '⭐';
-  font-size: 0.9rem;
-}
-
-.section-heading h2 {
-  font-size: 2.75rem;
+.usp-heading {
+  font-size: clamp(2.25rem, 4vw, 3rem);
   font-weight: 800;
-  color: var(--heading);
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
 }
 
-.section-heading h2 span {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+.text-gradient {
+  background: linear-gradient(135deg, #4ade80 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.section-heading p {
-  font-size: 1.1rem;
+.usp-desc {
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--text);
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
   margin: 0 auto;
 }
 
-/* USP Grid */
+/* ============================================
+   Cards Grid
+   ============================================ */
+
 .usp-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ============================================
+   USP Card - Image with Overlay
+   ============================================ */
+
+.usp-card {
   position: relative;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.usp-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Card Background Image */
+.usp-card-bg {
+  position: absolute;
+  inset: 0;
   z-index: 1;
 }
 
-/* USP Card */
-.usp-card {
-  background: var(--white);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(103, 180, 55, 0.08);
-  position: relative;
-  overflow: hidden;
-  cursor: default;
+.usp-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Card Corner Accent */
-.usp-card::before {
-  content: '';
+.usp-card:hover .usp-card-bg img {
+  transform: scale(1.1);
+}
+
+/* Dark Gradient Overlay */
+.usp-card-overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, transparent 50%, rgba(103, 180, 55, 0.04) 50%);
-  border-radius: 0 24px 0 24px;
-  transition: all 0.5s ease;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.2) 65%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: background 0.5s ease;
 }
 
-/* Card Bottom Gradient Line */
-.usp-card::after {
-  content: '';
+.usp-card:hover .usp-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.65) 35%,
+    rgba(0, 0, 0, 0.3) 65%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* Content Overlay */
+.usp-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 2rem 1.75rem;
+  transition: transform 0.4s ease;
+}
+
+.usp-card:hover .usp-card-content {
+  transform: translateY(-6px);
+}
+
+/* Card Icon */
+.usp-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.usp-card:hover .usp-card-icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Metric Badge */
+.usp-card-metric {
+  display: inline-block;
+  padding: 0.3rem 0.875rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Title */
+.usp-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Description */
+.usp-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* Hover Accent Line */
+.usp-card-line {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: 70%;
   height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
   border-radius: 3px 3px 0 0;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
 }
 
-/* Different gradient accents per card */
-.usp-card:nth-child(1)::after {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-.usp-card:nth-child(2)::after {
-  background: linear-gradient(90deg, var(--secondary), var(--primary));
-}
-
-.usp-card:nth-child(3)::after {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
-}
-
-.usp-card:nth-child(4)::after {
-  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
-}
-
-/* Card Hover Effects */
-.usp-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
-  border-color: rgba(103, 180, 55, 0.2);
-}
-
-.usp-card:hover::before {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, transparent 50%, rgba(103, 180, 55, 0.06) 50%);
-}
-
-.usp-card:hover::after {
+.usp-card:hover .usp-card-line {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* USP Icon Container */
-.usp-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
+/* ============================================
+   Bottom Section
+   ============================================ */
+
+.usp-bottom {
+  text-align: center;
+}
+
+/* Advantages */
+.usp-advantages {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.usp-advantage-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.75rem;
-  position: relative;
-  z-index: 1;
-  transition: all 0.5s ease;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
-/* Different icon styles per card */
-.usp-card:nth-child(1) .usp-icon {
-  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-  color: #16a34a;
-  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.15);
+.advantage-icon {
+  display: flex;
+  align-items: center;
+  color: #4ade80;
 }
 
-.usp-card:nth-child(2) .usp-icon {
-  background: linear-gradient(135deg, var(--light-blue), #bfdbfe);
-  color: var(--secondary-dark);
-  box-shadow: 0 8px 25px rgba(30, 111, 184, 0.15);
+/* CTA Button */
+.usp-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 25px rgba(34, 197, 94, 0.3);
 }
 
-.usp-card:nth-child(3) .usp-icon {
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  color: #d97706;
-  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.15);
+.usp-cta:hover {
+  background: linear-gradient(135deg, #2D8FD5, #1E6FB8);
+  box-shadow: 0 10px 35px rgba(45, 143, 213, 0.4);
+  transform: translateY(-2px);
 }
 
-.usp-card:nth-child(4) .usp-icon {
-  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-  color: #7c3aed;
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+.usp-cta svg {
+  transition: transform 0.3s ease;
 }
 
-/* Icon Pulse Animation */
-.usp-card:hover .usp-icon {
-  transform: scale(1.1) rotate(-5deg);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-  animation: iconPulse 1.5s ease-in-out infinite;
+.usp-cta:hover svg {
+  transform: translateX(4px);
 }
 
-@keyframes iconPulse {
-  0%, 100% {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Card Content */
-.usp-card h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--heading);
-  margin-bottom: 0.875rem;
-  position: relative;
-  z-index: 1;
-  transition: color 0.3s ease;
-}
-
-.usp-card p {
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-
-/* USP Number Badge */
-.usp-card .usp-number {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 4rem;
-  font-weight: 800;
-  color: rgba(0, 0, 0, 0.02);
-  line-height: 1;
-  pointer-events: none;
-  transition: all 0.5s ease;
-  z-index: 0;
-}
-
-.usp-card:hover .usp-number {
-  color: rgba(0, 0, 0, 0.04);
-  transform: scale(1.1) translate(-5px, -5px);
-}
-
-/* Connecting Line Between Cards (Desktop) */
-.usp-grid::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent,
-    rgba(103, 180, 55, 0.1) 20%,
-    rgba(45, 143, 213, 0.1) 50%,
-    rgba(103, 180, 55, 0.1) 80%,
-    transparent
-  );
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Center Diamond */
-.usp-grid::after {
-  content: '◆';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  color: rgba(103, 180, 55, 0.15);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .usp-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .usp-grid::before,
-  .usp-grid::after {
-    display: none;
-  }
-}
+/* ============================================
+   Responsive
+   ============================================ */
 
 @media (max-width: 768px) {
   .usp {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
-  .section-heading h2 {
-    font-size: 2rem;
-  }
-
-  .section-heading p {
-    font-size: 1rem;
+  .usp-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .usp-card {
-    padding: 2rem;
+    height: 300px;
   }
 
-  .usp-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
+  .usp-heading {
+    font-size: 2rem;
   }
 
-  .usp-icon svg {
-    width: 28px;
-    height: 28px;
+  .usp-advantages {
+    gap: 0.5rem;
   }
 
-  .usp-card h3 {
-    font-size: 1.2rem;
+  .usp-advantage-item {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
   }
 }
 
 @media (max-width: 640px) {
-  .usp-grid {
-    grid-template-columns: 1fr;
-    max-width: 450px;
-    margin: 0 auto;
-  }
-
-  .section-heading {
-    margin-bottom: 2.5rem;
+  .usp-container {
+    padding: 0 1.25rem;
   }
 
   .usp-card {
-    padding: 1.75rem;
+    height: 280px;
   }
 
-  .usp-card .usp-number {
-    font-size: 3rem;
-    top: 1.5rem;
-    right: 1.5rem;
+  .usp-card-content {
+    padding: 1.5rem 1.25rem;
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .usp *,
-  .usp *::before,
-  .usp *::after {
+  .usp * {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
