@@ -466,3 +466,214 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ============================================
+   Map Section
+   ============================================ */
+
+.contact-map-wrapper {
+  margin-top: 4rem;
+}
+
+.map-container {
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(103, 180, 55, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Map Header */
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(103, 180, 55, 0.08);
+}
+
+.map-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--heading);
+}
+
+.map-header-left svg {
+  color: #f59e0b;
+}
+
+.map-header-left h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0;
+}
+
+.map-view-larger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: rgba(103, 180, 55, 0.06);
+  color: var(--primary-dark);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(103, 180, 55, 0.1);
+}
+
+.map-view-larger:hover {
+  background: rgba(103, 180, 55, 0.12);
+  border-color: rgba(103, 180, 55, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Map Embed */
+.map-embed {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Map Coordinates Bar */
+.map-coordinates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
+  background: #fafdf8;
+  border-top: 1px solid rgba(103, 180, 55, 0.08);
+}
+
+.coord-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.coord-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.coord-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.coord-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(103, 180, 55, 0.12);
+}
+
+.coord-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.coord-directions:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+/* Info Card - Directions Link */
+.info-directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.875rem;
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.info-directions-link:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   Responsive Map
+   ============================================ */
+
+@media (max-width: 768px) {
+  .contact-map-wrapper {
+    margin-top: 3rem;
+  }
+
+  .map-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .map-embed {
+    height: 300px;
+  }
+
+  .map-coordinates {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .coord-divider {
+    width: 80%;
+    height: 1px;
+  }
+
+  .coord-directions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .map-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .map-embed {
+    height: 250px;
+  }
+
+  .map-view-larger {
+    width: 100%;
+    justify-content: center;
+  }
+}
