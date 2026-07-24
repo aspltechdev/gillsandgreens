@@ -1,0 +1,489 @@
+/* ============================================
+   Revenue Section - Layout with Image Cards
+   ============================================ */
+
+.revenue {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.revenue::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(103, 180, 55, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.revenue::after {
+  content: '';
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(45, 143, 213, 0.04) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Container */
+.revenue-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   Layout - Side by Side
+   ============================================ */
+
+.revenue-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ============================================
+   Left - Header
+   ============================================ */
+
+.revenue-header {
+  position: sticky;
+  top: 100px;
+}
+
+.revenue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.5rem;
+  background: linear-gradient(135deg, rgba(234, 246, 221, 0.9), rgba(234, 245, 252, 0.9));
+  color: var(--primary-dark);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(103, 180, 55, 0.2);
+  transition: all 0.3s ease;
+}
+
+.revenue-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 180, 55, 0.12);
+}
+
+.revenue-heading {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--heading);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.revenue-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 2rem;
+}
+
+/* Stats */
+.revenue-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.revenue-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid rgba(103, 180, 55, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.revenue-stat-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.revenue-stat-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.revenue-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.revenue-stat-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--heading);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.revenue-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* CTA Button */
+.revenue-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(103, 180, 55, 0.25);
+}
+
+.revenue-cta:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+  box-shadow: 0 10px 35px rgba(45, 143, 213, 0.35);
+  transform: translateY(-2px);
+}
+
+.revenue-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.revenue-cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   Right - Image Cards Grid
+   ============================================ */
+
+.revenue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* ============================================
+   Revenue Card with Image
+   ============================================ */
+
+.revenue-card {
+  position: relative;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.revenue-card:hover {
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Image */
+.revenue-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.revenue-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.revenue-card:hover .revenue-card-bg img {
+  transform: scale(1.1);
+}
+
+/* Dark Overlay */
+.revenue-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0.25) 60%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: background 0.5s ease;
+}
+
+.revenue-card:hover .revenue-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 35%,
+    rgba(0, 0, 0, 0.35) 65%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* Card Inner Content */
+.revenue-card-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 1.5rem 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.revenue-card:hover .revenue-card-inner {
+  transform: translateY(-4px);
+}
+
+/* Card Top Row */
+.revenue-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+/* Icon */
+.revenue-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  transition: all 0.3s ease;
+}
+
+.revenue-card:hover .revenue-card-icon {
+  transform: scale(1.1);
+}
+
+/* Metric */
+.revenue-card-metric {
+  text-align: right;
+}
+
+.revenue-metric-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.revenue-metric-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  margin-top: 0.15rem;
+}
+
+/* Title */
+.revenue-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Description */
+.revenue-card-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* Hover Indicator Line */
+.revenue-card-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+
+.revenue-card:hover .revenue-card-indicator {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .revenue-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .revenue-header {
+    position: static;
+    text-align: center;
+  }
+
+  .revenue-stats {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .revenue-stat-item {
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+  }
+
+  .revenue-desc {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue {
+    padding: 5rem 0;
+  }
+
+  .revenue-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .revenue-card {
+    height: 260px;
+  }
+
+  .revenue-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .revenue-container {
+    padding: 0 1.25rem;
+  }
+
+  .revenue-card {
+    height: 240px;
+  }
+
+  .revenue-card-inner {
+    padding: 1.25rem;
+  }
+
+  .revenue-stats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .revenue-stat-item {
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .revenue * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media (max-width: 768px) {
+  .revenue {
+    padding: 1rem 0 !important; /* shrink section padding */
+  }
+
+  .revenue-layout {
+    gap: 0 !important; /* remove grid gap */
+  }
+
+  /* ★ Zero out ALL bottom margins inside the header */
+  .revenue-badge {
+    margin-bottom: 0.15rem !important;
+  }
+  .revenue-heading {
+    margin-bottom: 0.15rem !important;
+  }
+  .revenue-desc {
+    margin-bottom: 0.15rem !important;
+  }
+  .revenue-stats {
+    margin-bottom: 0.15rem !important;
+  }
+  .revenue-stat-item {
+    padding: 0.4rem 0.8rem !important; /* shrink stat boxes */
+  }
+  .revenue-cta {
+    margin-top: 0.15rem !important; /* optional */
+  }
+}
+@media (max-width: 640px) {
+  .revenue {
+    padding: 0.5rem 0 !important;
+  }
+  .revenue-layout {
+    gap: 0 !important;
+  }
+  .revenue-badge,
+  .revenue-heading,
+  .revenue-desc,
+  .revenue-stats {
+    margin-bottom: 0.05rem !important; /* almost nothing */
+  }
+}

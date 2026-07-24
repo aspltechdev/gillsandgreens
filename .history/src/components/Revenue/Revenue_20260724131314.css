@@ -1,0 +1,142 @@
+/* ============================================
+   FIXED RESPONSIVE - No gaps, always visible
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .revenue-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .revenue-header {
+    position: static;
+    text-align: center;
+  }
+  .revenue-stats {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .revenue-stat-item {
+    flex: 1;
+    min-width: 160px;
+    justify-content: center;
+  }
+  .revenue-desc {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue {
+    padding: 1.5rem 0 !important; /* Tight section */
+  }
+
+  .revenue-layout {
+    gap: 0.5rem !important; /* Super tight */
+  }
+
+  .revenue-header {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Crush header margins */
+  .revenue-badge {
+    margin-bottom: 0.25rem !important;
+  }
+  .revenue-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem !important;
+  }
+  .revenue-desc {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem !important;
+  }
+  .revenue-stats {
+    margin-bottom: 0.25rem !important;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .revenue-stat-item {
+    padding: 0.4rem 0.8rem;
+    flex: 1;
+    min-width: 120px;
+  }
+  .revenue-cta {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* ★★★ FIX FOR "NOT VISIBLE" ★★★ */
+  .revenue-grid {
+    grid-template-columns: 1fr 1fr; /* Keep 2 columns to save space */
+    gap: 0.5rem !important;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .revenue-card {
+    height: auto !important;        /* Let content decide height */
+    min-height: 140px !important;   /* Ensures it isn't too tiny */
+    background: #1a1a2e;            /* ★ FALLBACK COLOR if image fails ★ */
+  }
+
+  /* Fix inner spacing to fit */
+  .revenue-card-inner {
+    padding: 0.8rem !important;
+  }
+  .revenue-card-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+  }
+  .revenue-card-desc {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    display: block;          /* Remove the -webkit-line-clamp hiding */
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+  .revenue-card-top {
+    margin-bottom: 0.2rem;
+  }
+  .revenue-card-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .revenue-metric-value {
+    font-size: 0.9rem;
+  }
+  .revenue-metric-label {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .revenue {
+    padding: 1rem 0 !important;
+  }
+  .revenue-layout {
+    gap: 0.25rem !important;
+  }
+  .revenue-grid {
+    grid-template-columns: 1fr; /* Stack on small phones */
+    gap: 0.25rem !important;
+    max-width: 400px;
+  }
+  .revenue-card {
+    min-height: 120px !important;
+  }
+  .revenue-heading {
+    font-size: 1.5rem;
+  }
+  .revenue-stats {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .revenue-stat-item {
+    justify-content: flex-start;
+    min-width: unset;
+  }
+}
